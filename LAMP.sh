@@ -114,11 +114,11 @@ fi
 
 if [ "$isCentOs7" == true ]
 then
-    sudo wget -N http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-13.ius.centos7.noarch.rpm
+    sudo wget -N https://repo.ius.io/ius-release-el7.rpm
     sudo rpm -Uvh ius-release*.rpm
 else
     # Please note that v6.5, 6.4, etc. are all covered by the following repository:
-    sudo wget -N http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-13.ius.centos6.noarch.rpm
+    sudo wget -N https://repo.ius.io/ius-release-el7.rpm
     sudo rpm -Uvh ius-release*.rpm
 fi
 
