@@ -1,4 +1,5 @@
 #!/bin/bash
-echo "Enter Your Name"
-read name
-echo "Welcome $name to LinuxHint"
+Recipient=”asingh@morpheusdata.com”
+Subject=”Greeting”
+Message=”Welcome to our site”
+`mail -s $Subject $Recipient <<< $Message`
