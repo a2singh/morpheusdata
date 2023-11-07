@@ -1,0 +1,25 @@
+---
+- name: Render Hello Template
+  hosts: localhost
+  tasks:
+    - name: Create Jinja2 template file
+      copy:
+        content: |
+          {% if 'instance' in morpheus %}
+              {% set instance_data = morpheus.instance.decode('utf-8') %}
+              {{ instance_data | to_json | safe }}
+          {% else %}
+              {}
+          {% endif %}
+        dest: /tmp/hello_template.j2
+      delegate_to: localhost
+
+    - name: Render template and print output
+      ansible.builtin.template:
+        src: /tmp/hello_template.j2
+        dest: /tmp/hello_output.txt
+      delegate_to: localhost
+
+    - name: Print the output
+      ansible.builtin.shell: cat /tmp/hello_output.txt
+      delegate_to: localhost
