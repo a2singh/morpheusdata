@@ -1,5 +1,5 @@
 ---
-- name: Install and Configure Apache
+- name: Install Apache
   hosts: all
   gather_facts: false
   connection: local
